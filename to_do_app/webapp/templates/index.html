@@ -1,18 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Main Page</title>
 </head>
 <body>
-    {%for action in to_do%}
-       <p>{{action.description}}</p>
-       <p>{{action.status}}</p>
-       <p>{{action.deadline}}</p>
-       <a href="/delete?pk={{action.pk}}">Delete</a>
-    {%endfor%}
-    <a href="/add">ADD</a>
+    <div class="container">
+        <h1 class="title">TO DO LIST</h1>
+    </div>
+    <div class="container"">
+        {%for action in to_do%}
+        <div class="row">
+            <p class="text">Description: {{action.description}}</p>
+            <p class="text">Status: {{action.status}}</p>
+            <p class="text">Deadline: {{action.deadline}}</p>
+            <a class="delete_link" href="/delete?pk={{action.pk}}">Delete</a>
+        </div>
+        {%endfor%}
+        <a class="add_link" href="/add">ADD NEW ACTION</a>
+    </div>
+    
 </body>
 </html>
