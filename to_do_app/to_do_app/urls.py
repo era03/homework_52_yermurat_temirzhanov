@@ -21,5 +21,8 @@ from webapp import views as webapp_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', webapp_views.index_view)
+    path('', webapp_views.index_view),
+    path('add', webapp_views.to_do_add),
+    path('delete', webapp_views.delete_to_do)
+
 ]
